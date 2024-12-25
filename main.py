@@ -5,7 +5,14 @@ model_name = "microsoft/DialoGPT-medium"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
-app = Client("flirty_indian_wife_bot", bot_token="YOUR_BOT_API_KEY")
+api_id = 20457610
+api_hash = "b7de0dfecd19375d3f84dbedaeb92537"
+BOT_TOKEN = '7803060804:AAHxlEv17jVE1GOm2MCtGnbyAoCXBGwJmCw'
+app = Client(
+    "Grabber",
+    api_id=api_id,
+    api_hash=api_hash,
+    bot_token=TOKEN)
 
 def chatbot_response(user_input):
     prompt = f"""
@@ -19,7 +26,7 @@ def chatbot_response(user_input):
     response = tokenizer.decode(outputs[:, inputs.shape[-1]:][0], skip_special_tokens=True)
     return response
 
-@app.on_message(filters.text)
+@app.on_message(filters.text, group=1)
 def respond(client, message):
     user_input = message.text
     if user_input.lower() in ["exit", "quit"]:
