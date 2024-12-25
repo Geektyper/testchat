@@ -1,4 +1,3 @@
 pyrogram 
 transformers
-Tg-crypto
 Pytorch
